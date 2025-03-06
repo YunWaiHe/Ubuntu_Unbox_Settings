@@ -8,4 +8,4 @@
   @reboot $(sleep 30 && pkill -HUP mutter-x11-fram)
   ```
 
-  
+Wait for fix...  
