@@ -10,6 +10,8 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 ```shell
 # config policy
+sudo mkdir -p /etc/opt/chrome/policies/managed
+sudo touch /etc/opt/chrome/policies/managed/policy.json
 cat << 'EOF' | sudo tee /etc/opt/chrome/policies/managed/policy.json
 {
   "EnableMediaRouter": false,
