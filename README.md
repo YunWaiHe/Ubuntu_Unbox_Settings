@@ -25,6 +25,6 @@ If encounter any issues, feel free to submit an issue.
 * [cuda config](./CUDA/nvidia_cuda_env.md)
 * [dev config](./DEV/dev_toolchain.md)
 * [git config](./GIT/git_usage.md)
-* [3rd software](./SOFTWARE/third_software.md)
+* [software](./SOFTWARE/Software.md)
 * [zsh config](./ZSH/zsh_install_config.md)
 * [shell shortcuts](./shell_shortcuts.md)
