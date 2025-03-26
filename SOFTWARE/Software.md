@@ -279,6 +279,9 @@ EOF
 .cm-s-inner .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
 
 EOF
+
+
+sed -i 's/  --code-cursor-color: var(--dracula-current-line);/  --code-cursor-color: #ffffff !important;/g' ./dracula.css
 ```
 
 
