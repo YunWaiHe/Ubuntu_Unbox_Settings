@@ -51,9 +51,18 @@ sudo snap refresh snap-store --channel=latest/stable/ubuntu-24.04
 
 #### 0. Installation
 
+
 ```shell
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
+```
+
+keep version 134
+
+```shell
+wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_134.0.6998.165-1_amd64.deb
+sudo dpkg -i google-chrome-stable_134.0.6998.165-1_amd64.deb
+sudo apt-mark hold google-chrome-stable
 ```
 
 #### 1. Chrome Policies<span id='jump_chrome'></span>
