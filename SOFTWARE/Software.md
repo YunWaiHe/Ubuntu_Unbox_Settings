@@ -65,6 +65,22 @@ sudo dpkg -i google-chrome-stable_134.0.6998.165-1_amd64.deb
 sudo apt-mark hold google-chrome-stable
 ```
 
+Another way to downgrade:
+
+```shell
+wget -q https://pkgs.geos.ed.ac.uk/keys/GeoSciences-Package-Service.gpg -O- | sudo tee /etc/apt/keyrings/pkgs.geos.ed.ac.uk.asc
+
+gpg -n -q --import --import-options import-show /etc/apt/keyrings/pkgs.geos.ed.ac.uk.asc | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "7859D35F0CD88A9E939AE644CB330CFDB2D2256F") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
+
+cat << 'EOF' | sudo tee /etc/apt/pkgs.geos.ed.ac.uk.list
+deb [arch=amd64 signed-by=/etc/apt/keyrings/pkgs.geos.ed.ac.uk.asc] https://pkgs.geos.ed.ac.uk/chrome/ stable main
+EOF
+
+apt-cache madison google-chrome-stable
+```
+
+
+
 #### 1. Chrome Policies<span id='jump_chrome'></span>
 
 https://chromeenterprise.google/policies/
