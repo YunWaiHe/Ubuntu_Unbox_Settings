@@ -441,3 +441,33 @@ wget https://code.visualstudio.com/sha/download\?build\=stable\&os\=linux-deb-x6
 | alacarte     | .desktop   |                                        |              |              |
 | dconf-editor |            | apt install dconf-editor               |              |              |
 | gnome-tweaks |            | apt install gnome-tweaks               |              |              |
+| sogoupinyin  |            | https://shurufa.sogou.com/linux        | No Repo      |              |
+
+### Sogou Pinyin
+
+
+```shell
+# global
+sudo cat << 'EOF' | sudo tee /etc/environment.d/90sogou.conf
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS="@im=fcitx"
+EOF
+
+# user specified
+sudo vim ~/.pam_environment
+GTK_IM_MODULE DEFAULT=fcitx
+QT_IM_MODULE  DEFAULT=fcitx
+XMODIFIERS    DEFAULT=\@im=fcitx
+
+# dependency install
+sudo apt install fcitx libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2 libgsettings-qt1
+# solve unavailable on chrome v135 or newer version
+sudo apt install fcitx5-frontend-gtk4
+
+sudo apt purge ibus*
+sudo cp /usr/share/applications/fcitx.desktop /etc/xdg/autostart/
+sudo dpkg -i debfilename
+sudo reboot
+# 进入系统后，打开终端，按下ctrl+space，看搜狗输入法的输入栏是否出现，若没有出现，打开“fcitx 配置”，将搜狗输入法移至最上，重启再次观察
+```
